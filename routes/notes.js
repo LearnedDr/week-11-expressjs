@@ -6,26 +6,7 @@ router.get('/', (req, res) =>
 readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)))
 );
 
-
-
 module.exports = router
-
-// // // -------- REQUIRED IMPORTS --------
-// const express = require("express");
-// const router = express.Router();
-// const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
-// const path = require('path');
-// // const uuid = require("../helpers/uuid");
-
-// // GET route for retrieving all notes
-// router.get("/", (req, res) => {
-//     console.log("getting route for all notes");
-//     readFromFile("./db/notes.json").then(data => {
-//         res.json(JSON.parse(data));
-//     })
-// })
-
-// module.exports = router;
 
 router.post('/', (req, res) => {
     console.log(req.body);
@@ -49,23 +30,19 @@ router.post('/', (req, res) => {
     }
 });
 
-// // POST Route for a new UX/UI tip
-// router.post('/', (req, res) => {
-//     console.log(req.body);
-  
-//     const { username, topic, tip } = req.body;
-  
-//     if (req.body) {
-//       const newTip = {
-//         username,
-//         tip,
-//         topic,
-//         tip_id: uuidv4(),
-//       };
-  
-//       readAndAppend(newTip, './db/tips.json');
-//       res.json(`Tip added successfully 🚀`);
-//     } else {
-//       res.error('Error in adding tip');
-//     }
-//   });
+// // // -------- REQUIRED IMPORTS --------
+// const express = require("express");
+// const router = express.Router();
+// const { readFromFile, readAndAppend } = require("../helpers/fsUtils");
+// const path = require('path');
+// // const uuid = require("../helpers/uuid");
+
+// // GET route for retrieving all notes
+// router.get("/", (req, res) => {
+//     console.log("getting route for all notes");
+//     readFromFile("./db/notes.json").then(data => {
+//         res.json(JSON.parse(data));
+//     })
+// })
+
+// module.exports = router;
