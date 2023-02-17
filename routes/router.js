@@ -1,10 +1,10 @@
 const express = require('express');
-const router = express.Router();
+// const router = express.Router();
 const notesRouter = require('./notes');
+const app = express();
+app.use("/notes", notesRouter);
 
-router.use("/notes", notesRouter);
-
-module.exports = router
+module.exports = app
 
 // // -------- REQUIRED IMPORTS --------
 // const express = require("express");

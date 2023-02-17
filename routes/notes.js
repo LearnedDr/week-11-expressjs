@@ -34,6 +34,37 @@ router.post('/', (req, res) => {
     }
 });
 
+// router.get('/:id', (req, res) => {
+//     const requestedId = req.params.id
+//     console.log('Hello');
+//     console.log(requestedId);
+//     readFromFile('./db/notes.json')
+//         .then((data) => JSON.parse(data))
+//         .then((json) => {
+//             const result = json.filter((note) => note.id === requestedId);
+//             //ternary operator ---- fancy if statement
+//             return result.length > 0 // if
+//             ? res.json(result) // yes
+//             : res.json('No note with that ID'); // no
+//         })
+// });
+
+router.route('/:id')
+.get((req, res) => {
+    const requestedId = req.params.id
+    console.log('Hello');
+    console.log(requestedId);
+    readFromFile('./db/notes.json')
+        .then((data) => JSON.parse(data))
+        .then((json) => {
+            const result = json.filter((note) => note.id === requestedId);
+            //ternary operator ---- fancy if statement
+            return result.length > 0 // if
+            ? res.json(result) // yes
+            : res.json('No note with that ID'); // no
+        })
+});
+
 module.exports = router
 // // // -------- REQUIRED IMPORTS --------
 // const express = require("express");
